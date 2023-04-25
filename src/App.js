@@ -18,7 +18,6 @@ function App() {
 
   function modifyCurrencyCode() {
     let choice = currencyRef.current.value
-    console.log(choice)
     setCurrencyCode(choice)
   }
 
@@ -47,7 +46,6 @@ function App() {
   function getMaxAndMin() {
     axios.get(apiUrl + '/last/average-rate/' + currencyCode + '/' + numberOfLastQuotations)
     .then(response => {
-      console.log(response.data)
       setResult('Max: '+ response.data.max + ' Min: ' + response.data.min)
     })
     .catch(error => {
