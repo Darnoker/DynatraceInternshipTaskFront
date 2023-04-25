@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 function App() {
-  const apiUrl = process.env.REACT_APP_API_URL
+  const apiUrl = 'http://localhost:8080/exchange'
   const [result, setResult] = useState('result will be here')
   const [currencyCode, setCurrencyCode] = useState()
   const [date, setDate] = useState()
