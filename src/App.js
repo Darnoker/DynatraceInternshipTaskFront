@@ -6,7 +6,6 @@ import axios from 'axios'
 function App() {
   const apiUrl = process.env.REACT_APP_API_URL
   const [result, setResult] = useState('result will be here')
-  const [choices, setChoices] = useState([])
   const [currencyCode, setCurrencyCode] = useState()
   const [date, setDate] = useState()
   const [numberOfLastQuotations, setNumberOfLastQuotations] = useState()
