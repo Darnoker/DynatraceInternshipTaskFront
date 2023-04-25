@@ -4,6 +4,7 @@ import axios from 'axios'
 
 
 function App() {
+  const apiUrl = process.env.REACT_APP_API_URL
   const [result, setResult] = useState('result will be here')
   const [choices, setChoices] = useState([])
   const [currencyCode, setCurrencyCode] = useState()
@@ -34,7 +35,7 @@ function App() {
   }
 
   function getAverageExchangeRate() {
-    axios.get('http://localhost:8080/exchange/' + currencyCode + '/' + date)
+    axios.get(apiUrl + '/' + currencyCode + '/' + date)
     .then(response => {
       setResult('Average exchange rate: ' + response.data)
     })
@@ -45,7 +46,7 @@ function App() {
   }
 
   function getMaxAndMin() {
-    axios.get('http://localhost:8080/exchange/last/average-rate/' + currencyCode + '/' + numberOfLastQuotations)
+    axios.get(apiUrl + '/last/average-rate/' + currencyCode + '/' + numberOfLastQuotations)
     .then(response => {
       console.log(response.data)
       setResult('Max: '+ response.data.max + ' Min: ' + response.data.min)
@@ -57,7 +58,7 @@ function App() {
   }
 
   function getSpread() {
-    axios.get('http://localhost:8080/exchange/last/spread/' + currencyCode + '/' + numberOfLastQuotations)
+    axios.get(apiUrl + '/last/spread/' + currencyCode + '/' + numberOfLastQuotations)
     .then(response => {
       setResult('Major difference: ' + response.data)
     })
@@ -86,10 +87,9 @@ function App() {
         </div>
 
         <div>
-          <h2>{result}</h2>
+          {result}
         </div>
 
-        
       </header>
     </div>
   );
